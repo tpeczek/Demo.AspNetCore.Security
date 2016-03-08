@@ -1,0 +1,12 @@
+﻿body {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Source Code Pro';
+    font-size: 3em;
+    font-weight: 500;
+    line-height: 1em;
+    margin: 0;
+    padding: 0;
+}
