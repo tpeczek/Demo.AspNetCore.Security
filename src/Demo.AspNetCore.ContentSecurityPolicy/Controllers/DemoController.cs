@@ -1,5 +1,5 @@
 ﻿using Lib.AspNetCore.Mvc.Security.Filters;
-using Microsoft.AspNet.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Demo.AspNetCore.ContentSecurityPolicy.Controllers
 {

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Hosting;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Demo.AspNetCore.ContentSecurityPolicy
@@ -13,8 +12,6 @@ namespace Demo.AspNetCore.ContentSecurityPolicy
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseIISPlatformHandler();
-
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
@@ -22,7 +19,5 @@ namespace Demo.AspNetCore.ContentSecurityPolicy
                 routes.MapRoute(name: "default", template: "{controller=Demo}/{action=Index}");
             });
         }
-
-        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
     }
 }
