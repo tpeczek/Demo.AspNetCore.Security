@@ -5,23 +5,18 @@
     <title>Content Security Policy</title>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'>
     <link href="~/css/site.css" rel="stylesheet" type="text/css">
-    @using (Html.BeginCspStyle())
-    {
-        <text>
+    <style asp-csp>
         h1:before, h1:after {
             color: red;
             content: "*";
         }
-        </text>
-    }
+    </style>
 </head>
 <body>
     <h1>Content Security Policy Level 2</h1>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shine.js/0.2.7/shine.min.js"></script>
-    @using (Html.BeginCspScript())
-    {
-        <text>
+    <script asp-csp>
         $(document).ready(function() {
             var cspShine = new Shine($('h1')[0]);
 
@@ -30,7 +25,6 @@
             cspShine.config.opacity = 0.75;
             cspShine.draw();
         });
-        </text>
-    }
+    </script>
 </body>
 </html>
