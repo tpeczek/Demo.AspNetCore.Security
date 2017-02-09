@@ -1,5 +1,5 @@
-# Demo.AspNetCore.ContentSecurityPolicy
-Sample project for demonstrating functionality of [Lib.AspNetCore.Mvc.Security](https://github.com/tpeczek/Lib.AspNetCore.Mvc.Security).
+﻿# Demo.AspNetCore.ContentSecurityPolicy
+Demo project for demonstrating functionality of [Lib.AspNetCore.Mvc.Security](https://github.com/tpeczek/Lib.AspNetCore.Mvc.Security).
 
 ## Donating
 Support this and my [other projects](https://github.com/tpeczek/) via [Gittip](https://www.gittip.com/tpeczek/).
