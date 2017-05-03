@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using System.IO;
 
-namespace Demo.AspNetCore.ContentSecurityPolicy
+namespace Demo.AspNetCore.Security
 {
     public class Program
     {
