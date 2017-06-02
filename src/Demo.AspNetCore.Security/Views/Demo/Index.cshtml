@@ -5,7 +5,7 @@
     <title>Content Security Policy</title>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'>
     <link href="~/css/site.css" rel="stylesheet" type="text/css">
-    <style asp-csp>
+    <style asp-csp="cache">
         h1:before, h1:after {
             color: red;
             content: "*";
@@ -16,7 +16,7 @@
     <h1>Content Security Policy Level 2</h1>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shine.js/0.2.7/shine.min.js"></script>
-    <script asp-csp>
+    <script asp-csp="cache">
         $(document).ready(function() {
             var cspShine = new Shine($('h1')[0]);
 

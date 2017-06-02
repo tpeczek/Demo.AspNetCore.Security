@@ -30,11 +30,17 @@ namespace Demo.AspNetCore.Security
                     scriptSources: ContentSecurityPolicyHeaderValue.SelfSource + " cdnjs.cloudflare.com",
                     scriptInlineExecution: ContentSecurityPolicyInlineExecution.Hash,
                     styleSources: ContentSecurityPolicyHeaderValue.SelfSource + " fonts.googleapis.com",
-                    styleInlineExecution: ContentSecurityPolicyInlineExecution.Hash
-                );
-                
-                builder.WithReportOnlyExpectCt("https://localhost:44300/report-ct");
+                    styleInlineExecution: ContentSecurityPolicyInlineExecution.Hash,
+                    reportUri: "/report-csp"
+                )
+                .WithReportOnlyExpectCt("https://localhost:44300/report-ct")
+                .WithDenyXFrameOptions()
+                .WithBlockXssFiltering()
+                .WithXContentTypeOptions()
+                .WithXDownloadOptions()
+                .WithReferrerPolicy(ReferrerPolicyDirectives.NoReferrer);
             })
+            .MapContentSecurityPolicyReporting("/report-csp")
             .MapExpectCtReporting("/report-ct");
 
             app.UseMvc(routes =>

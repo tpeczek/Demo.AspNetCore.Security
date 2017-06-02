@@ -14,6 +14,17 @@ namespace Demo.AspNetCore.Security.Services
             _logger = logger;
         }
 
+        public Task OnContentSecurityPolicyViolationAsync(ContentSecurityPolicyViolationReport report)
+        {
+            _logger.LogWarning("Content Security Policy Violation: Document: {DocumentUri} | Resource: {BlockedUri} | Directive: {ViolatedDirective} | Disposition: {Disposition}",
+                report.DocumentUri,
+                report.BlockedUri,
+                report.ViolatedDirective,
+                report.Disposition);
+
+            return Task.FromResult(0);
+        }
+
         public Task OnExpectCtViolationAsync(ExpectCtViolationReport report)
         {
             _logger.LogWarning("Expect-CT Violation: Failure Date: {FailureDate} UTC | Effective Expiration Date: {EffectiveExpirationDate} UTC | Host: {Host} | Port: {Port}",
