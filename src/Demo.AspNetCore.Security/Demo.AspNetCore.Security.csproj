@@ -17,9 +17,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <!--<PackageReference Include="Lib.AspNetCore.Mvc.Security" Version="2.0.0" />
-    <PackageReference Include="Lib.AspNetCore.Security" Version="2.0.0" />-->
-    <PackageReference Include="Lib.AspNetCore.Mvc.Security" Version="2.1.0" />
+    <PackageReference Include="Lib.AspNetCore.Mvc.Security" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="1.1.2" />

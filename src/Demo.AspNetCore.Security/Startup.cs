@@ -27,9 +27,15 @@ namespace Demo.AspNetCore.Security
                 builder.WithCsp(
                     fontSources: "fonts.gstatic.com",
                     imageSources: ContentSecurityPolicyHeaderValue.SelfSource,
-                    scriptSources: ContentSecurityPolicyHeaderValue.SelfSource + " cdnjs.cloudflare.com",
+                    scriptSources: (new ContentSecurityPolicySourceListBuilder())
+                        .WithSelfKeyword()
+                        .WithUrls("cdnjs.cloudflare.com")
+                        .Build(),
                     scriptInlineExecution: ContentSecurityPolicyInlineExecution.Hash,
-                    styleSources: ContentSecurityPolicyHeaderValue.SelfSource + " fonts.googleapis.com",
+                    styleSources: (new ContentSecurityPolicySourceListBuilder())
+                        .WithSelfKeyword()
+                        .WithUrls("fonts.googleapis.com")
+                        .Build(),
                     styleInlineExecution: ContentSecurityPolicyInlineExecution.Hash,
                     reportUri: "/report-csp"
                 )
@@ -38,7 +44,8 @@ namespace Demo.AspNetCore.Security
                 .WithBlockXssFiltering()
                 .WithXContentTypeOptions()
                 .WithXDownloadOptions()
-                .WithReferrerPolicy(ReferrerPolicyDirectives.NoReferrer);
+                .WithReferrerPolicy(ReferrerPolicyDirectives.NoReferrer)
+                .WithNoneXPermittedCrossDomainPolicies();
             })
             .MapContentSecurityPolicyReporting("/report-csp")
             .MapExpectCtReporting("/report-ct");
