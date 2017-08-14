@@ -45,7 +45,12 @@ namespace Demo.AspNetCore.Security
                 .WithXContentTypeOptions()
                 .WithXDownloadOptions()
                 .WithReferrerPolicy(ReferrerPolicyDirectives.NoReferrer)
-                .WithNoneXPermittedCrossDomainPolicies();
+                .WithNoneXPermittedCrossDomainPolicies()
+                .WithFeaturePolicy(new FeaturePolicy
+                {
+                    Camera = new[] { "https://other.com" },
+                    Microphone = new [] { "https://other.com" }
+                });
             })
             .MapContentSecurityPolicyReporting("/report-csp")
             .MapExpectCtReporting("/report-ct");
