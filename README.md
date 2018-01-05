@@ -12,4 +12,4 @@ My blog and open source projects are result of my passion for software developme
 
 Copyright © 2016 - 2018 Tomasz Pęczek
 
-Licensed under the [MIT License](https://github.com/tpeczek/Demo.AspNetCore.Security /blob/master/LICENSE.md)
+Licensed under the [MIT License](https://github.com/tpeczek/Demo.AspNetCore.Security/blob/master/LICENSE.md)
