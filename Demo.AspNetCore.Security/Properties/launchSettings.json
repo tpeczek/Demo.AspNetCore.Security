@@ -15,7 +15,7 @@
         "Hosting:Environment": "Development"
       }
     },
-    "WebApplication1": {
+    "Demo.AspNetCore.Security": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "http://localhost:5000",

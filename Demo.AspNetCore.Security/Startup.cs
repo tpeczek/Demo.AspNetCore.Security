@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Lib.AspNetCore.Security;
@@ -12,7 +13,7 @@ namespace Demo.AspNetCore.Security
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<ISecurityHeadersReportingService, LoggerSecurityHeadersReportingService>();
-            services.AddMvc();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
