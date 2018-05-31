@@ -14,7 +14,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0-rc1-final" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0" />
     <PackageReference Include="Lib.AspNetCore.Security" Version="3.0.0" />
     <PackageReference Include="Lib.AspNetCore.Mvc.Security" Version="3.0.0" />
   </ItemGroup>
