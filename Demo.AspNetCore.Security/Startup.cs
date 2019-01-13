@@ -13,14 +13,11 @@ namespace Demo.AspNetCore.Security
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<ISecurityHeadersReportingService, LoggerSecurityHeadersReportingService>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
-        public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app)
         {
-            loggerFactory.AddConsole();
-            loggerFactory.AddDebug();
-
             app.UseStaticFiles();
 
             app.UseSecurityHeaders(builder =>
