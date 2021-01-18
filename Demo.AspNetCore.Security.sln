@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30709.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.AspNetCore.Security", "Demo.AspNetCore.Security\Demo.AspNetCore.Security.csproj", "{E0060012-08FE-4961-A693-178ED81663A5}"
 EndProject
@@ -18,9 +18,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{E0060012-08FE-4961-A693-178ED81663A5} = {2F110655-D926-4D43-B714-0AC046C911EB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34C909FC-B8F0-405F-A7DA-9BB8786A95D5}

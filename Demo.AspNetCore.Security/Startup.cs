@@ -13,7 +13,8 @@ namespace Demo.AspNetCore.Security
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<ISecurityHeadersReportingService, LoggerSecurityHeadersReportingService>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddControllersWithViews();
         }
 
         public void Configure(IApplicationBuilder app)
@@ -44,18 +45,20 @@ namespace Demo.AspNetCore.Security
                 .WithXDownloadOptions()
                 .WithReferrerPolicy(ReferrerPolicyDirectives.NoReferrer)
                 .WithNoneXPermittedCrossDomainPolicies()
-                .WithFeaturePolicy(new FeaturePolicy
-                {
-                    Camera = new[] { "https://other.com" },
-                    Microphone = new [] { "https://other.com" }
-                });
-            })
-            .MapContentSecurityPolicyReporting("/report-csp")
-            .MapExpectCtReporting("/report-ct");
+                .WithPermissionsPolicy
+                (
+                    PolicyControlledFeature.CreateAllowedForAllowList("camera", "https://other.com"),
+                    PolicyControlledFeature.CreateAllowedForAllowList("microphone", "https://other.com")
+                );
+            });
 
-            app.UseMvc(routes =>
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(name: "default", template: "{controller=Demo}/{action=Index}");
+                endpoints.MapContentSecurityPolicyReporting("/report-csp");
+                endpoints.MapExpectCtReporting("/report-ct");
+                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Demo}/{action=Index}");
             });
         }
     }
